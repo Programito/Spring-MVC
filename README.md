@@ -19,3 +19,5 @@ CrudRepository
 WebMvcConfigurer (Multilenguaje)
 
 Thymeleaf
+
+Bootstrap
