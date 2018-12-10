@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header">
+				<h2>View Employee</h2>
+			</div>
+			<div class="card-body">
+				<ul class="list-group">
+					<li class="list-group-item" th:if="${employee.name != null}">
+						<h3 th:text="|Name: ${employee.name}|"></h3>
+					</li>
+					<li class="list-group-item" th:if="${developer != null}">
+						<h3 th:text="|Title: ${developer}|"></h3>
+					</li>
+					<li class="list-group-item" th:if="${address != null}">
+						<h3 th:text="'Address:'"></h3>
+						<h4 th:text="|Adress Country: ${address.addressCountry}|"></h4>
+						<h4 th:text="|Adress City: ${address.addressCity}|"></h4>
+					</li>
+
+					<li class="list-group-item" th:if="${phones != null}">
+						<h3 th:text="'Phones:'"></h3>
+						<h4 th:if="${phones != null}" th:each="phone: ${phones}"
+							th:text="|Phone: ${phone.phoneNumber}|"></h4>
+					</li>
+
+					<li class="list-group-item" th:if="${projects != null}">
+						<h3 th:text="'Projects:'"></h3>
+						<h4 th:if="${projects != null}" th:each="project: ${projects}"
+							th:text="|Project: ${project.name}|"></h4>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center">
+		. <a class="btn btn-success btn-lg " th:href="@{'/'}"
+			th:text="'Return'"></a>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

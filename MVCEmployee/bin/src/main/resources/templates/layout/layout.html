@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="'Employee and Projects'"></title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+</head>
+
+<header th:fragment="header">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<a class="navbar-brand" th:href="@{/}" th:text="#{text.nav.home}">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			aria-label="Toggle navigation"></button>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto navbar-left">
+				<li><a class="btn btn-outline-primary"
+					th:href="@{/}" th:text="#{text.nav.home}">Home
+						 </a></li>
+					<li class="mx-3"><a class="btn btn-outline-primary"
+					th:href="@{/viewprojects}" th:text="#{text.nav.view}">View 
+						Proyect </a></li>
+				<li><a class="mx-3 btn btn-outline-primary"
+					th:href="@{/addemployee}" th:text="#{text.nav.employee}">Add
+						Employee </a></li>
+				<li class="mx-3"><a class="btn btn-outline-primary"
+					th:href="@{/addproject}" th:text="#{text.nav.project}">Add
+						Proyect </a></li>
+
+			</ul>
+			<!-- href="?lang=de_DE" -->
+			<ul class="navbar-nav navbar-right mx-4">
+				<li class="nav-item mx-1"><a class="btn btn-outline-success"
+					th:href="@{/locale(lang=es_ES)}">ES</a></li>
+				<li class="nav-item mx-1"><a class="btn btn-outline-success"
+					th:href="@{/locale(lang=en_US)}">EN</a></li>
+				<li class="nav-item mx-1"><a class="btn btn-outline-success"
+					th:href="@{/locale(lang=ca_CA)}">CA</a></li>
+
+				<li class="nav-item dropdown show mx-3"><a
+					class="btn btn-outline-primary dropdown-toggle" href="#"
+					role="button" id="dropdownLenguaje" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"><span
+						th:text="#{text.locale.language}"> </span></a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" th:href="@{/locale(lang=es_ES)}"
+							th:text="#{text.locale.es}">ES</a><a class="dropdown-item"
+							th:href="@{/locale(lang=en_US)}" th:text="#{text.locale.en}">EN</a>
+						<a class="dropdown-item" th:href="@{/locale(lang=ca_CA)}"
+							th:text="#{text.locale.ca}">CA</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+	<footer th:fragment="footer" class="container">
+		<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+	</footer>
+
+</body>
+</html>

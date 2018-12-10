@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<h2>Employee List</h2>
+
+	<!-- <a class="btn btn-primary btn-xs my-4 mx-5" th:href="@{'/addemployee'}"
+		th:text="'Add Employee'"></a>
+
+	<a class="btn btn-primary btn-xs my-4 mx-5" th:href="@{'/addproject'}"
+		th:text="'Add Project'"></a> -->
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header">
+				<h2 class="card-title text-center">Employee List</h2>
+			</div>
+		</div>
+
+
+
+		<div class="card-body">
+			<table th:if="${not #lists.isEmpty(employees)}"
+				class="table table-bordered table-striped my-4">
+				<thead class="thead-inverse">
+					<tr>
+						<th>View</th>
+						<th>id</th>
+						<th>Name</th>
+						<th>Add Address</th>
+						<th>Add Phone</th>
+						<th>Add Project</th>
+						<th>Add Developer</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="employee: ${employees}">
+						<td><a class="btn btn-primary btn-xs"
+							th:href="@{'viewemployee/' + ${employee.id}}" th:text="'view'"></a></td>
+						<td th:text="${employee.id}"></td>
+						<td th:text="${employee.name}"></td>
+						<td><a class="btn btn-success btn-xs"
+							th:href="@{'addaddress/' + ${employee.id}}"
+							th:text="'Add Adress'"></a></td>
+						<td><a class="btn btn-success btn-xs"
+							th:href="@{'addphone/' + ${employee.id}}" th:text="'Add Phone'"></a></td>
+						<td><a class="btn btn-success btn-xs"
+							th:href="@{'addproject/' + ${employee.id}}"
+							th:text="'Add Project'"></a></td>
+						<td><a class="btn btn-success btn-xs"
+							th:href="@{'developer/' + ${employee.id}}"
+							th:text="'Add Developer'"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
